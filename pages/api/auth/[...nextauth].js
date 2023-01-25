@@ -11,8 +11,13 @@ export const authOptions = {
       server: process.env.EMAIL_SERVER,
       from: process.env.EMAIL_FROM
     }),
+    
     // ...add more providers here
   ],
+  pages:{
+    signIn: '/auth/signin',
+    verifyRequest: '/auth/verify-request',
+  }
 }
 
 export default NextAuth(authOptions)
