@@ -4,16 +4,11 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { SessionProvider } from "next-auth/react"
 import { signIn } from "next-auth/react";
-import Expandcard from "@/components/Expandcard";
-import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [exp, setExp] = useState(false);
-  const HandleClick = () => {
-    setExp(!exp);
-  };
+
 
 
   return (
@@ -25,15 +20,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="bg-orange-100 min-h-screen">
+      <div className="bg-slate-700 min-h-screen">
         paradigm mein paisa chahiye.
         <button onClick={()=>signIn()}>sign in</button>
-      <div>
-        <Expandcard HandleClick={HandleClick} exp={exp}/>
       </div>
-      </div>
-
-      
     </>
   );
 }
