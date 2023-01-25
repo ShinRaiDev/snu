@@ -2,14 +2,18 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { SessionProvider } from "next-auth/react"
-import { signIn } from "next-auth/react";
+import { SessionProvider, signOut } from "next-auth/react"
+import { signIn,useSession } from "next-auth/react";
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
+  const {data:session}=useSession()
 
+console.log(session?.user);
 
   return (
     <>
@@ -23,6 +27,9 @@ export default function Home() {
       <div className="bg-slate-700 min-h-screen">
         paradigm mein paisa chahiye.
         <button onClick={()=>signIn()}>sign in</button>
+        <button onClick={()=>signOut()}>sign out</button>
+        {session?.user?.name}
+        
       </div>
     </>
   );
