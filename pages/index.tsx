@@ -18,7 +18,7 @@ export default function Home() {
 
   const {data:session}=useSession()
 
-console.log(session?.user);
+console.log(session);
 const HandleClick=()=>{
     
 }
@@ -33,6 +33,8 @@ const HandleClick=()=>{
       </Head>
 
       <div className="bg-orange-100 min-h-screen">
+        welcome {session?.user?.email}
+        {!session?.user && <button onClick={() => signIn()}>sign in</button>}
         <Navbar title="Title"/>
         paradigm mein paisa chahiye.
         <button onClick={()=>signIn()}>sign in</button>

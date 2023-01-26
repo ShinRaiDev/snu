@@ -1,4 +1,4 @@
-import { getProviders, signIn, useSession } from "next-auth/react"
+import { getProviders, getSession, signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { ChangeEvent, useState } from "react"
 
@@ -26,6 +26,16 @@ export default function SignIn({ providers }:any) {
 
 export async function getServerSideProps(context:any) {
   const providers = await getProviders()
+  const session = await getSession(context);
+
+  if (session?.user) {
+      return {
+          redirect: {
+              destination: "/",
+              permanent: false,
+          },
+      };
+  }
   return {
     props: { providers },
   }
