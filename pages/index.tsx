@@ -16,7 +16,7 @@ export default function Home() {
 
   const {data:session}=useSession()
 
-console.log(session?.user);
+console.log(session);
 const HandleClick=()=>{
     
 }
@@ -31,8 +31,8 @@ const HandleClick=()=>{
       </Head>
 
       <div className="bg-orange-100 min-h-screen">
-        paradigm mein paisa chahiye.
-        <button onClick={()=>signIn()}>sign in</button>
+        welcome {session?.user?.email}
+        {!session?.user && <button onClick={() => signIn()}>sign in</button>}
         <button onClick={()=>signOut()}>sign out</button>
         {session?.user?.name}
         <Expanded bgColor="bg-orange-300" title="lorem ipsum" content="ya iski maa ki chu"/>
