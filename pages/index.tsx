@@ -4,16 +4,22 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { SessionProvider, signOut } from "next-auth/react"
 import { signIn,useSession } from "next-auth/react";
+import Expanded from "../components/Expanded"
+import { useState } from "react";
 
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [exp,setexp]=useState(false)
 
   const {data:session}=useSession()
 
 console.log(session?.user);
+const HandleClick=()=>{
+    
+}
 
   return (
     <>
@@ -24,12 +30,12 @@ console.log(session?.user);
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="bg-slate-700 min-h-screen">
+      <div className="bg-orange-100 min-h-screen">
         paradigm mein paisa chahiye.
         <button onClick={()=>signIn()}>sign in</button>
         <button onClick={()=>signOut()}>sign out</button>
         {session?.user?.name}
-        
+        <Expanded bgColor="bg-orange-300" title="lorem ipsum" content="ya iski maa ki chu"/>
       </div>
     </>
   );
