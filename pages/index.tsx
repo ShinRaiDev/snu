@@ -5,7 +5,9 @@ import styles from "@/styles/Home.module.css";
 import { SessionProvider, signOut } from "next-auth/react"
 import { signIn,useSession } from "next-auth/react";
 import Expanded from "../components/Expanded"
+import Button from "../components/Button";
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -31,11 +33,14 @@ const HandleClick=()=>{
       </Head>
 
       <div className="bg-orange-100 min-h-screen">
+        <Navbar title="Title"/>
         paradigm mein paisa chahiye.
         <button onClick={()=>signIn()}>sign in</button>
         <button onClick={()=>signOut()}>sign out</button>
         {session?.user?.name}
         <Expanded bgColor="bg-orange-300" title="lorem ipsum" content="ya iski maa ki chu"/>
+        
+        <Button></Button>
       </div>
     </>
   );
