@@ -15,7 +15,7 @@ export default function SignIn({ providers }:any) {
     <div className="flex justify-center items-center min-h-screen">
     <label className="text-xl font-light" >Email: </label>
       <form>
-        <input className="border-2 border-b-8 py-2 px-3 rounded-xl m-3 border-black" type="email" value={Email} onChange={(e)=>{handleChange(e)}} />
+        <input className="border-2 border-b-8 border-l-4 py-2 px-3 rounded-xl m-3 border-black" type="email" value={Email} onChange={(e)=>{handleChange(e)}} />
         <button className="border-2 border-b-8 py-2 px-3 rounded-xl m-3 border-black" onClick={(e)=>{
             e.preventDefault()
             signIn("email",{email:Email,redirect:true})}} >sign in</button>
