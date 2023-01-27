@@ -3,11 +3,18 @@ import csv from 'csv-parser'
 import fs from 'fs'
 
 const prisma = new PrismaClient()
+let count = 0;
+let UserId;
+
 
 fs.createReadStream('./Dataset_Hackathon.csv')
   .pipe(csv())
   .on('data', async (row) => {
-
+    if (count % 2 == 0) {
+      UserId="cldf31k1400038va8k6j1s7zs"
+    } else {
+      UserId="cldf35s7s00068va88b1tq1aq"
+    }
     try {
       await prisma.item.create({
         data: {
@@ -27,7 +34,7 @@ fs.createReadStream('./Dataset_Hackathon.csv')
           exportType: row.Flow,
           user: {
             connect: {
-              id: "clderoc9900008v00esjea3ry"
+              id: UserId
             }
           }
 
@@ -35,8 +42,7 @@ fs.createReadStream('./Dataset_Hackathon.csv')
         }
       })
     } catch (error) {
-      console.log(row);
-      console.log(error);
+      
     }
     // prisma.item.create({
     //   data: {
@@ -59,7 +65,9 @@ fs.createReadStream('./Dataset_Hackathon.csv')
     // }
     //   }
     // })
-  })
+    count+=1  
+  },
+)
   .on('end', () => {
     console.log('CSV file successfully processed');
     prisma.$disconnect()
