@@ -8,8 +8,8 @@ function LandingPage() {
       <div className="bg-orange-300 min-h-screen">
         <div className="flex items-center flex-grow justify-between" >
             <div className="w-full font-extrabold text-3xl p-5">Title</div>
-            <button className="mx-3 mt-3 hover:bg-black hover:text-white h-max px-2 py-3 outline outline-2 outline-black hover:rounded-md min-w-max">Log in</button>
-            <button className="mx-3 mt-3 bg-black text-slate-50 min-w-max h-max px-2 py-3 hover:bg-transparent hover:outline hover:outline-2 outline-black hover:rounded-md hover:text-black transition-all duration-200">Sign Up</button>
+            <button className="mx-3 mt-3 hover:bg-black hover:text-white min-h-max px-2 py-3 outline outline-2 outline-black hover:rounded-md min-w-max">Log in</button>
+            <button className="mx-3 mt-3 bg-black text-slate-50 min-w-max min-h-max px-2 py-3 hover:bg-transparent hover:outline hover:outline-2 outline-black hover:rounded-md hover:text-black transition-all duration-200">Sign Up</button>
         </div>
 
         <div className="flex flex-col-reverse  md:flex-row md:flex mt-24 md:justify-between p-7">
@@ -23,7 +23,7 @@ function LandingPage() {
             </div>
 
             <div className="flex">
-                <div className="w-1/2 p-3 h-24"><Button className="bg-yellow-300"></Button></div>
+                <div className="w-1/2 p-3 h-24"><Button/></div>
                 <div className="w-1/2 p-3 h-24"><Button/></div>
             </div>
           </Container>
