@@ -1,3 +1,4 @@
+import Container from "@/components/container"
 import { getProviders, getSession, signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { ChangeEvent, useState } from "react"
@@ -12,15 +13,16 @@ export default function SignIn({ providers }:any) {
     if(session?.user) router.replace("/")
     
   return (
-    <div className="flex justify-center items-center min-h-screen">
-    <label className="text-xl font-light" >Email: </label>
-      <form>
-        <input className="border-2 border-b-8 border-l-4 py-2 px-3 rounded-xl m-3 border-black" type="email" value={Email} onChange={(e)=>{handleChange(e)}} />
-        <button className="border-2 border-b-8 py-2 px-3 rounded-xl m-3 border-black" onClick={(e)=>{
+    <div className="flex justify-center items-center min-h-screen flex-col relative bg-neutral-300">
+     <form className="flex items-center w-1/2">
+    <div className=" font-light font-bebas tracking-widest text-2xl px-2 py-3 " >E-Mail: </div>
+        <input className="border-2 border-b-8 flex-grow py-2 px-3 rounded-xl m-3 bg-transparent border-black focus:bg-white  transition-all duration-200 " type="email" value={Email} onChange={(e)=>{handleChange(e)}} />
+        <button className="border-2 border-b-8 py-2 px-3 rounded-xl m-3 border-black hover:bg-white font-bebas tracking-widest text-xl  transition-all duration-200" onClick={(e)=>{
             e.preventDefault()
-            signIn("email",{email:Email,redirect:true})}} >sign in</button>
+            signIn("email",{email:Email,redirect:true})}} >Sign In</button>
       </form>
-    </div>
+      <div className="font-thin text-3xl absolute bottom-10  ">Yes It's that simple !</div>
+    </div >
   )
 }
 
