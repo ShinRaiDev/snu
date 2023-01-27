@@ -37,7 +37,6 @@ const HandleClick=()=>{
         {!session?.user && <button onClick={() => signIn()}>sign in</button>}
         <Navbar title="Title"/>
         paradigm mein paisa chahiye.
-        <button onClick={()=>signIn()}>sign in</button>
         <button onClick={()=>signOut()}>sign out</button>
         {session?.user?.name}
         <Expanded bgColor="bg-orange-300" title="lorem ipsum" content="ya iski maa ki chu"/>
