@@ -8,6 +8,7 @@ import Expanded from "../components/Expanded"
 import Button from "../components/Button";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import Container from "@/components/container";
 
 
 
@@ -41,7 +42,7 @@ const HandleClick=()=>{
         {session?.user?.name}
         <Expanded bgColor="bg-orange-300" title="lorem ipsum" content="ya iski maa ki chu"/>
         
-        <Button></Button>
+        <Container><Button>this is a fucking button</Button></Container>
       </div>
     </>
   );
