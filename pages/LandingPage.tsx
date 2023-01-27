@@ -23,7 +23,7 @@ function LandingPage() {
             </div>
 
             <div className="flex">
-                <div className="w-1/2 p-3 h-24"><Button className="bg-yellow-300"></Button></div>
+                <div className="w-1/2 p-3 h-24"><Button/></div>
                 <div className="w-1/2 p-3 h-24"><Button/></div>
             </div>
           </Container>
