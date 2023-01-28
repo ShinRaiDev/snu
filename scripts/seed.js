@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import csv from 'csv-parser'
+import { create } from 'domain';
 import fs from 'fs'
+import { countToCode } from './country.js';
 
 const prisma = new PrismaClient()
 let count = 0;
@@ -20,6 +22,7 @@ fs.createReadStream('./Dataset_Hackathon.csv')
         data: {
           name: row.Commodity,
           quantity: parseInt(row.Quantity),
+          country:row.Country,
           category: {
             connectOrCreate: {
               where: {
@@ -31,13 +34,26 @@ fs.createReadStream('./Dataset_Hackathon.csv')
               }
             },
           },
+          warehouse: {
+            connectOrCreate: {
+              where: {
+                id:await countToCode(row.Country)
+              },
+              create:{
+                userId: UserId,
+                distance:parseFloat(row.Distance),
+                id:await countToCode(row.Country),
+              }
+            }
+          },
           exportType: row.Flow,
           user: {
             connect: {
               id: UserId
             }
-          }
-
+          },
+         
+          
 
         }
       })
